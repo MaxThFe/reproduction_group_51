@@ -20,12 +20,14 @@ As depicted, the model grossly overestimates the likelihood for some beforehand 
 
 ## Further inspection of data
 
-### Non-normal distributions
+### Is the distribution wrong? Non-normal distributions
 
-### Reduced space representation 
+### Analysis in reduced space representations
 
 #### Principal component analysis (PCA)
 
 #### Discriminant representation
 
 #### Autoencoder representation
+
+## Concluding remarks
