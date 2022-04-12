@@ -25,9 +25,11 @@ In order to strengthen the conclusions of the paper, we have opted to reproduce 
 
 ![Reproduced data variance across datasets](https://user-images.githubusercontent.com/61148684/162921530-516810e7-9424-4946-aa0b-fbb2a3b3fdf9.png)
 
+As we can see, Figure 5 and 6 match the aforementioned Figure 2 in terms of distribution. The main difference is the difference in density, shown on the y-axis. This difference can be explained by using a subset of the dataset, which they seem to have expanded. The SVHN histogram of variances differs, appearing smoother in the paper compared to our reproduced histogram. This can similarly be explained by using a subset of the data, which can result in a less smooth graph The general shapes of the graphs still align, which strengthens the original paper in their remarks.
 
+If we compare Figure 1 and Figure 4, we can see that the distributions of the cifar-10-test and SVHN-test match up with the distributions of our reproduced likelihood estimation. We have only reproduced the test variants in our graph, which we simply named cifar-10 and SVHN. We have abstained from reproducing the Cifar-10 train datasets, as it would mean we would have to retrain the entire model. This would consume considerable amounts of both resources and time, which we did not have at our disposal at the time. The scales on both the x and y-axis are different in our reproduced graph compared to the graph presented by Nalisnick et al. TODO: add explanation?
 
-As we can see, Figure 4 matches the aforementioned Figure 2 in terms of distribution. The main difference is the difference in density, shown on the y-axis. This difference can be explained by using a subset of the dataset, which they seem to have expanded. The SVHN histogram of variances differs, appearing smoother in the paper compared to our reproduced histogram. This can similarly be explained by using a subset of the data, which can result in a less smooth graph The general shapes of the graphs still align, which strengthens the original paper in their remarks.
+In general, the reproduced graphs imply that Nalisnick et al. have done proper research and allowed others to relatively easily confirm their statements. Reproducing the graphs was explained well in the paper, which made our efforts more fruitful.
 
 ## Further inspection of data
 
