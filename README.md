@@ -14,17 +14,33 @@ As depicted, the model grossly overestimates the likelihood for some beforehand 
 
 ![Analysis of several datasets for mean and standard deviation](https://user-images.githubusercontent.com/96209029/162839197-9e0e71f5-51db-4d04-baca-da3699112009.png)
 
+
 ## Reproduction of main results
 
-In order to strengthen the conclusions of the paper, we have opted to reproduce their results. We will focus on the histograms provided in Figure 2, as well as the log likelyhood estimation shown in Figure 1 in graph b, as they can be verified with relative ease while still validating the overall conclusions of the paper. Of these datasets, the SVHN, Cifar-100 and Cifar-10 are accessible to us. CelebA and ImageNet were difficult for us to obtain, making reproducing their plots impossible. The results of the datasets that were accessible can be found in Figure 3 and 4.  
+In order to strengthen the conclusions of the paper, we have opted to reproduce their results. We will focus on the histograms provided in Figure 2, as well as the log likelyhood estimation shown in Figure 1 in graph b, as they can be verified with relative ease while still validating the overall conclusions of the paper. Of these datasets, the SVHN, Cifar-100 and Cifar-10 are accessible to us. CelebA and ImageNet were difficult for us to obtain, making reproducing their plots impossible. The results of the datasets that were accessible can be found in Figure 3 and 4. 
 
-TODO: add own results figure for reproducibility.
+![Reproduced Likelihood estimation of GLOW](https://user-images.githubusercontent.com/61148684/162921183-0e4688af-4295-4915-8a74-592f1a72df2d.png)
+
+![Reproduced data means across datasets ](https://user-images.githubusercontent.com/61148684/162921517-41fb3552-2d37-4e89-b862-cfe65a69f617.png)
+
+![Reproduced data variance across datasets](https://user-images.githubusercontent.com/61148684/162921530-516810e7-9424-4946-aa0b-fbb2a3b3fdf9.png)
+
+
 
 As we can see, Figure 4 matches the aforementioned Figure 2 in terms of distribution. The main difference is the difference in density, shown on the y-axis. This difference can be explained by using a subset of the dataset, which they seem to have expanded. The SVHN histogram of variances differs, appearing smoother in the paper compared to our reproduced histogram. This can similarly be explained by using a subset of the data, which can result in a less smooth graph The general shapes of the graphs still align, which strengthens the original paper in their remarks.
 
 ## Further inspection of data
 
 ### Is the distribution wrong? Non-normal distributions
+
+![Data means across datasets in Cuachy distributions](https://user-images.githubusercontent.com/61148684/162921786-5db2a53d-43d2-4673-bbfa-3c4885f12e85.png)
+
+![Data variance across datasets in Cauchy distributions](https://user-images.githubusercontent.com/61148684/162921800-fb5ee8ae-f6a4-4832-92ab-102a4f98f198.png)
+
+![Degrees of freedom for Chi distribution across datasets](https://user-images.githubusercontent.com/61148684/162921999-5be2eaa0-9c98-47de-b56f-435312f7ab0a.png)
+
+![Degrees of freedom denominator and numerator of F distributions across datasets](https://user-images.githubusercontent.com/61148684/162922073-96c3d5c2-b84a-4098-851d-18ddb5da13a4.png)
+
 
 ### Analysis in reduced space representations
 
