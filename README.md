@@ -162,7 +162,13 @@ As we can see, the shapes of the scaled mean after our PCA are similar across al
 #### Discriminant representation
 We have also looked at discriminant representation. In order to do this, we have taken the pretrained vgg16 and resnet-50 and applied transfer learning on them. We then used these on our 3 datasets: SVHN, Cifar-10 and Cifar-100. In total, we get 6 models to compare. We then compare the histograms for the latent representations. The results of this can be found below:
 
+![ResNetMeanScaled](https://user-images.githubusercontent.com/61148684/163449842-43a48dca-88ac-4291-9aed-18b73a3b7d2f.png)
 
+![VGG16MeanScaled](https://user-images.githubusercontent.com/61148684/163449856-37dedec2-e3bd-4486-8c94-3cd05bd52390.png)
+
+![ResNetStdScaled](https://user-images.githubusercontent.com/61148684/163449865-d4464bae-e090-4cbb-b948-04ab28aa502f.png)
+
+![VGG16StdScaled](https://user-images.githubusercontent.com/61148684/163449872-0d9232b6-e61b-4d0a-a59d-411f3f8bad82.png)
 
 #### Autoencoder representation
 
@@ -170,6 +176,7 @@ We have also looked at discriminant representation. In order to do this, we have
 
 
 #### Contributions
+
 All the members of the group read the research paper and then worked on replicating the Figures- . The entire reproduction project focuses on the 3 datasets- Cifar10, Cifar100 and SVHN as aforementioned.
 Post this, the individual contributions are as below:
 Maximilian and Nils worked upon non-normal Cauchy, Chi and F distributions to inspect data. They further summarized the paper and the reproduction results for this github blogpost.
