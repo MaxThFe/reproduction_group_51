@@ -8,7 +8,7 @@ For their investigation, Nalisnick et al. trained different generative models, r
 
 While providing evidence of such phenomena for different models, Nalisnick et al. concentrate in their analysis on the GLOW model, a model architecture from the family of flow-based generative models. More specifically, the authors create log-likelihood distributions for test-sets of different datasets, normally in a direct comparison of the test set belonging to the training set and a completely different set. Datasets they consider include, but are not limited to, FashionMNIST, MNIST, CIFAR-10, SVHN, CelebA and ImageNet. Looking at these datasets, it is obvious that they represent very different data domains and hence should not be confused. In Figure 1 however are the log-likelihoods of the GLOW model for several datasets depicted. It is apparent that indeed for these datasets, the generative model makes predictions on untrained testsets with a higher confidence than on the trained datasets.
 
-<center>
+<div align="center">
 <table style='text-align:center;'>
     <tr>
         <td>
@@ -19,11 +19,11 @@ While providing evidence of such phenomena for different models, Nalisnick et al
      <td>Fig 1: Likelihood estimation of GLOW on several datsets, direct comparison between trained dataset and new datsets</td>
     <tr>
 </table>
-</center>
+</div>
 
 As depicted, the model grossly overestimates the likelihood for some beforehand unseen datasets, failing to detect anomalies. In their quest to find an explanation to that phenomena, Nalisnick et al. analyze the data sets serving as inputs to their generative models. More specifically, they calculate the mean and standard deviation along all channels (32x32x3 in the case of FashionMNIST, MNIST, CIFAR-10, SVHN, CelebA and ImageNet) for each set. The results can be seen in Figure 2. Based on the observation, that for instance SVHN dataset, a dataset misleading the generative models in testing, has a similiar mean and smaller variance than the CIFAR-10, a datset the models were trained on. The authors conclude that the missfitting datasets simply "sit inside" of the training sets, mirroring a part of the distribution the models have a high confidence on due to the number of training samples.
 
-<center>
+<div align="center">
 <table style='text-align:center;'>
     <tr>
         <td>
@@ -34,7 +34,7 @@ As depicted, the model grossly overestimates the likelihood for some beforehand 
      <td>Fig 2: Analysis of several datasets for mean and standard deviation</td>
     <tr>
 </table>
-</center>
+</div>
 
 
 ## Reproduction of main results
@@ -42,7 +42,7 @@ As depicted, the model grossly overestimates the likelihood for some beforehand 
 Traning of flow based generative models is a computationally intensive task. Additonally, the code of this fundamental paper has been reproduced before by others in PyTorch. Hence, in order to strengthen the conclusions of the paper, we have opted to reproduce their results on the outputs with a pre-implemted model while reproducing the input data analysis ourselves. We will focus on the histograms provided in Figure 2, as well as the log likelyhood estimation shown in Figure 1 in graph b in the original paper, as they can be verified with relative ease while still validating the overall conclusions of the paper. Of these datasets, the SVHN, Cifar-100 and Cifar-10 are accessible to us. CelebA and ImageNet were difficult for us to obtain, making reproducing their plots impossible. The results of the datasets that were accessible can be found in Figure 3 and 4. 
 
 
-<center>
+<div align="center">
 <table style='text-align:center;'>
     <tr>
         <td>
@@ -69,7 +69,7 @@ Traning of flow based generative models is a computationally intensive task. Add
      <td colspan=2>Fig 4: Reproduced Likelihood estimation of GLOW</td>
     <tr>
 </table>
-</center>
+</div>
 
 As we can see, Figure 4 match the aforementioned Figure 2 in terms of distribution. The main difference is the difference in density, shown on the y-axis. This difference can be explained by using a subset of the dataset, which they seem to have expanded. The SVHN histogram of variances differs, appearing smoother in the paper compared to our reproduced histogram. This can similarly be explained by using a subset of the data, which can result in a less smooth graph The general shapes of the graphs still align, which strengthens the original paper in their remarks.
 
@@ -87,6 +87,7 @@ More spefically, we are going to fit different, non-gaussian distributions first
 
 In order to check if we get similar results in other, non-normal distributions, we have selected some distributions with other parameters to check this. We have selected three distributions, each with distinct parameters, to get an overview of changing behaviour. These distributions are the Cauchy, Chi and F distributions. Cauchy has two parameters we can alter, the data localization and the data scale.  We can shift the Cauchy distribution with the localization and scale parameters. These are similar to the mean and variance parameters, which we have seen previously in Figures 5 and 6. The Chi distribution makes use of different parameters. The shape can be influenced significantly with the degrees of freedom. For the F distribution, the density is mainly influenced by two distinct features in the degrees of freedom, the denominator and the numerator. All of these graphs are created using a subset of the original databases, as the runtime seemed to exceed several days, which was not viable for our reproduce project. The F distribution and the Chi distributions were using around 20000 samples, while the Cauchy distribution was able to run using all samples provided by the databases. 
 
+<div align="center">
 <table style='text-align:center;'>
     <tr>
         <td>
@@ -100,11 +101,11 @@ In order to check if we get similar results in other, non-normal distributions, 
      <td colspan=2>Fig 5: Data localization and scale across datasets in Cauchy distributions</td>
     <tr>
 </table>
-</center>
+</div>
 
 As we can see above, the difference between the mean and localization is minor. The spreads for Cifar-100 and SVHN are slightly bigger, while the general shapes of the graphs are similar.
 
-<center>
+<div align="center">
 <table style='text-align:center;'>
     <tr>
         <td>
@@ -115,11 +116,11 @@ As we can see above, the difference between the mean and localization is minor. 
      <td>Fig 6: Degrees of freedom for Chi distribution across datasets</td>
     <tr>
 </table>
-</center>
+</div>
 
 With the Chi distribution, we see interestingly that degrees of freedom for Cifar-10 and Cifar-100 are centered around 1.8. The SVHN is centered around 3 degrees of freedom. The spread of SVHN is also lower than the spread of Cifar-10 and Cifar-100, which is similar to what we have seen in the other distributions. What is also noteworthy is that the Cifar-10 and Cifar-100 are skewed to the right, while the SVHN is more centered. 
 
-<center>
+<div align="center">
 <table style='text-align:center;'>
     <tr>
         <td>
@@ -130,7 +131,7 @@ With the Chi distribution, we see interestingly that degrees of freedom for Cifa
      <td>Fig 7: Degrees of freedom denominator and numerator of F distributions across datasets</td>
     <tr>
 </table>
-</center>
+</div>
 
 While the Chi distribution was also ran with a limited amount of samples, the F distribution seems to have a more rough plot, where the graph is not as smooth as observed with the Chi distribution. The spread within the numerator is limited, each dataset seems to have a similar F distribution.  With the denominator, the spread is more apparents. While this not skewed, the variance of especially the Cifar-10 and Cifar-100 distributions are highere than observed with the numerator.
 
@@ -141,7 +142,7 @@ Aside from compare the results, we can also take a look at the reduced space rep
 #### Principal component analysis (PCA)
 Principal component analysis allows us to summarize datasets, along indices that are more informing than others. These indices are called principal components. This allows us to effectively condense our information, making it easier to handle. We have concatenated the training and test data of the three datasets we have operated on. Using the function pca_lowrank(), we perform our principal component analysis. The tensors then get reshaped based on the the U, S and V matrices obtained from pca_lowrank(), which together form a decomposited matrix approximating the original dataset matrix. We then get the latent representation statistics, which collect the scale, mean and standard deviation. With the returned mean and standard deviation, we can then plot the variance across datasets, as shown in the Figures below:   
 
-<center>
+<div align="center">
 <table style='text-align:center;'>
     <tr>
         <td>
@@ -155,14 +156,14 @@ Principal component analysis allows us to summarize datasets, along indices that
      <td colspan=2>Fig 8: Mean and Standard Deviation after PCA</td>
     <tr>
 </table>
-</center>
+</div>
 
 As we can see, the shapes of the scaled mean after our PCA are similar across all three datasets. They are also similar in terms of density. For the standard deviation, we see great similarity for the Cifar-10 and Cifar-100 datasets. Both the shape and density match up for these datasets. The SVHN dataset does however differ in the graph. It has a distinctly different shape, not following the right-tailed distribution of both Cifar variants.
 
 #### Discriminant representation
 We have also looked at discriminant representation. In order to do this, we have taken the pretrained vgg16 and resnet-50 and applied transfer learning on them. We then used these on our 3 datasets: SVHN, Cifar-10 and Cifar-100. In total, we get 6 models to compare. We then compare the histograms for the latent representations. The results of this can be found below:
 
-<center>
+<div align="center">
 <table style='text-align:center;'>
     <tr>
         <td>
@@ -176,9 +177,9 @@ We have also looked at discriminant representation. In order to do this, we have
      <td colspan=2>Fig 9: Mean and Standard Deviation of latent representation generated by VGG-16</td>
     <tr>
 </table>
-</center>
+</div>
 
-<center>
+<div align="center">
 <table style='text-align:center;'>
     <tr>
         <td>
@@ -192,11 +193,11 @@ We have also looked at discriminant representation. In order to do this, we have
      <td colspan=2>Fig 10: Mean and Standard Deviation of latent representation generated by ResNet-50</td>
     <tr>
 </table>
-</center>
+</div>
 
 #### Autoencoder representation
                                                                                                                                     
-<center>
+<div align="center">
 <table style='text-align:center;'>
     <tr>
         <td>
@@ -210,7 +211,7 @@ We have also looked at discriminant representation. In order to do this, we have
      <td colspan=2>Fig 11: Mean and Standard Deviation of latent representation generated by Autoencoder</td>
     <tr>
 </table>
-</center>
+</div>
 
 ## Concluding remarks
 
