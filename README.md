@@ -1,7 +1,3 @@
-<style>
-.test { width: 100%; height: 100%; overflow: hidden; } 
-</style>
-
 # DO DEEP GENERATIVE MODELS KNOW WHAT THEY DON’T KNOW? - A reproduction study
 
 ## Introduction
