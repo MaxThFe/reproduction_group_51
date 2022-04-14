@@ -106,8 +106,7 @@ In order to check if we get similar results in other, non-normal distributions, 
 As we can see above, the difference between the mean and localization is minor. The spreads for Cifar-100 and SVHN are slightly bigger, while the general shapes of the graphs are similar.
 
 <div align="center">
-<table style='text-align:center;overflow: auto;
-}'>
+<table height=500px>
     <tr>
         <td>
         <img src="https://user-images.githubusercontent.com/61148684/162921999-5be2eaa0-9c98-47de-b56f-435312f7ab0a.png" width="400"/>
@@ -122,8 +121,7 @@ As we can see above, the difference between the mean and localization is minor. 
 With the Chi distribution, we see interestingly that degrees of freedom for Cifar-10 and Cifar-100 are centered around 1.8. The SVHN is centered around 3 degrees of freedom. The spread of SVHN is also lower than the spread of Cifar-10 and Cifar-100, which is similar to what we have seen in the other distributions. What is also noteworthy is that the Cifar-10 and Cifar-100 are skewed to the right, while the SVHN is more centered. 
 
 <div align="center">
-<table style='text-align:center;overflow: auto;
-}'>
+<table height=700px>
     <tr>
         <td>
         <img src="https://user-images.githubusercontent.com/61148684/162922073-96c3d5c2-b84a-4098-851d-18ddb5da13a4.png" width="400"/>
@@ -145,7 +143,7 @@ Aside from compare the results, we can also take a look at the reduced space rep
 Principal component analysis allows us to summarize datasets, along indices that are more informing than others. These indices are called principal components. This allows us to effectively condense our information, making it easier to handle. We have concatenated the training and test data of the three datasets we have operated on. Using the function pca_lowrank(), we perform our principal component analysis. The tensors then get reshaped based on the the U, S and V matrices obtained from pca_lowrank(), which together form a decomposited matrix approximating the original dataset matrix. We then get the latent representation statistics, which collect the scale, mean and standard deviation. With the returned mean and standard deviation, we can then plot the variance across datasets, as shown in the Figures below:   
 
 <div align="center">
-<table style='text-align:center;'>
+<table height=500px>
     <tr>
         <td>
         <img src="https://user-images.githubusercontent.com/61148684/163387423-355df5b7-cd56-42cd-abec-5fd1dcababd2.png" width="500"/>
@@ -166,7 +164,7 @@ As we can see, the shapes of the scaled mean after our PCA are similar across al
 We have also looked at discriminant representation. In order to do this, we have taken the pretrained vgg16 and resnet-50 and applied transfer learning on them. We then used these on our 3 datasets: SVHN, Cifar-10 and Cifar-100. In total, we get 6 models to compare. We then compare the histograms for the latent representations. The results of this can be found below:
 
 <div align="center">
-<table style='text-align:center;'>
+<table height=500px>
     <tr>
         <td>
         <img src="https://user-images.githubusercontent.com/61148684/163449856-37dedec2-e3bd-4486-8c94-3cd05bd52390.png" width="500"/>
@@ -182,7 +180,7 @@ We have also looked at discriminant representation. In order to do this, we have
 </div>
 
 <div align="center">
-<table style='text-align:center;'>
+<table height=500px>
     <tr>
         <td>
         <img src="https://user-images.githubusercontent.com/61148684/163449842-43a48dca-88ac-4291-9aed-18b73a3b7d2f.png" width="500"/>
@@ -200,7 +198,7 @@ We have also looked at discriminant representation. In order to do this, we have
 #### Autoencoder representation
                                                                                                                                     
 <div align="center">
-<table style='text-align:center;'>
+<table height=500px>
     <tr>
         <td>
         <img src="https://user-images.githubusercontent.com/13098653/163450979-c515ccab-798b-4db8-b629-dc5ccf6f09d4.png" width="500"/>
