@@ -53,7 +53,7 @@ While the Chi distribution was also ran with a limited amount of samples, the F 
 
 
 ### Analysis in reduced space representations
-
+Aside from compare the results, we can also take a look at the reduced space representation. We will check this with 3 representations: Principal component analysis, discriminant representation and lastly autoencoder representation.  
 
 #### Principal component analysis (PCA)
 Principal component analysis allows us to summarize datasets, along indices that are more informing than others. These indices are called principal components. This allows us to effectively condense our information, making it easier to handle. We have concatenated the training and test data of the three datasets we have operated on. Using the function pca_lowrank(), we perform our principal component analysis. The tensors then get reshaped based on the the U, S and V matrices obtained from pca_lowrank(), which together form a decomposited matrix approximating the original dataset matrix. We then get the latent representation statistics, which collect the scale, mean and standard deviation. With the returned mean and standard deviation, we can then plot the variance across datasets, as shown in the Figures below:     
@@ -63,6 +63,9 @@ Principal component analysis allows us to summarize datasets, along indices that
 As we can see, the shapes of the scaled mean after our PCA are similar across all three datasets. They are also similar in terms of density. For the standard deviation, we see great similarity for the Cifar-10 and Cifar-100 datasets. Both the shape and density match up for these datasets. The SVHN dataset does however differ in the graph. It has a distinctly different shape, not following the right-tailed distribution of both Cifar variants.
 
 #### Discriminant representation
+We have also looked at discriminant representation. In order to do this, we have taken the pretrained vgg16 and resnet-50 and applied transfer learning on them. We then used these on our 3 datasets: SVHN, Cifar-10 and Cifar-100. In total, we get 6 models to compare. We then compare the histograms for the latent representations. The results of this can be found below:
+
+
 
 #### Autoencoder representation
 
