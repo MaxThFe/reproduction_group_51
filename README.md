@@ -54,7 +54,13 @@ While the Chi distribution was also ran with a limited amount of samples, the F 
 
 ### Analysis in reduced space representations
 
+
 #### Principal component analysis (PCA)
+Principal component analysis allows us to summarize datasets, along indices that are more informing than others. These indices are called principal components. This allows us to effectively condense our information, making it easier to handle. We have concatenated the training and test data of the three datasets we have operated on. Using the function pca_lowrank(), we perform our principal component analysis. The tensors then get reshaped based on the the U, S and V matrices obtained from pca_lowrank(), which together form a decomposited matrix approximating the original dataset matrix. We then get the latent representation statistics, which collect the scale, mean and standard deviation. With the returned mean and standard deviation, we can then plot the variance across datasets, as shown in the Figures below:     
+![standevPCA](https://user-images.githubusercontent.com/61148684/163387423-355df5b7-cd56-42cd-abec-5fd1dcababd2.png)
+![meanPCA](https://user-images.githubusercontent.com/61148684/163387439-023a451a-142d-4a1b-af90-12880c6805b2.png)
+
+
 
 #### Discriminant representation
 
