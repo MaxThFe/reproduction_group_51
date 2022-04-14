@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In their paper, Nalisnick et al. challenge the common understanding of generative model's robustness to out-of-order data distribution. Many types of neural networks have shown that their confidence on other distributions can be very high, mispredicting outcomes with a high confidence. It was believed that this was not an issue for deep generative models. Nalisnick et al. demonstrate in their research that this phenomena can be indeed observed in generative models as well, contrary to popular belief. 
+In the paper by Nalisnick et al.[1], the authors challenge the common understanding of generative model's robustness to out-of-order data distribution. Many types of neural networks have shown that their confidence on other distributions can be very high, mispredicting outcomes with a high confidence. It was believed that this was not an issue for deep generative models. Nalisnick et al. demonstrate in their research that this phenomena can be indeed observed in generative models as well, contrary to popular belief. 
 
 For their investigation, Nalisnick et al. trained different generative models, representing species of VAEs, autoregressive models and flow-based generative models on several datasets, and testing them on unrelated datasets. They find that all these models can assign higher probabiltiy distributions to unrealted datasets that the models were not trained on and than those they were trained on. This suggest that generative models would, for instance, when confronted with anomalies, predict with high confidence, not detecting such out-distribution data. The example also demonstrates that a thorough analysis of the observed phenomena is necessary for application of generative models in industry. 
 
@@ -139,7 +139,7 @@ While the Chi distribution was also ran with a limited amount of samples, the F 
 Aside from compare the results, we can also take a look at the reduced space representation. We will check this with 3 representations: Principal component analysis, discriminant representation and lastly autoencoder representation.  
 
 #### Principal component analysis (PCA)
-Principal component analysis allows us to summarize datasets, along indices that are more informing than others. These indices are called principal components. This allows us to effectively condense our information, making it easier to handle. We have concatenated the training and test data of the three datasets we have operated on. Using the function pca_lowrank(), we perform our principal component analysis. The tensors then get reshaped based on the the U, S and V matrices obtained from pca_lowrank(), which together form a decomposited matrix approximating the original dataset matrix. We then get the latent representation statistics, which collect the scale, mean and standard deviation. With the returned mean and standard deviation, we can then plot the variance across datasets, as shown in the Figures below:   
+Principal component analysis allows us to summarize datasets, along indices that are more informing than others. These indices are called principal components. This allows us to effectively condense our information, making it easier to handle. We have concatenated the training and test data of the three datasets we have operated on. Using the function pca_lowrank(), we perform our principal component analysis. The tensors then get reshaped based on the the U, S and V matrices obtained from pca_lowrank(), which together form a decomposited matrix (size = 3x32x6) approximating the original dataset matrix (size = 3x32x32). We then get the statistics from the decomposed matrix. With the returned mean and standard deviation, we can then plot the variance across datasets, as shown in the Figures below:   
 
 <center>
 <table style='text-align:center;'>
@@ -160,7 +160,7 @@ Principal component analysis allows us to summarize datasets, along indices that
 As we can see, the shapes of the scaled mean after our PCA are similar across all three datasets. They are also similar in terms of density. For the standard deviation, we see great similarity for the Cifar-10 and Cifar-100 datasets. Both the shape and density match up for these datasets. The SVHN dataset does however differ in the graph. It has a distinctly different shape, not following the right-tailed distribution of both Cifar variants.
 
 #### Discriminant representation
-We have also looked at discriminant representation. In order to do this, we have taken the pretrained vgg16 and resnet-50 and applied transfer learning on them. We then used these on our 3 datasets: SVHN, Cifar-10 and Cifar-100. In total, we get 6 models to compare. We then compare the histograms for the latent representations. The results of this can be found below:
+We have also looked at discriminant representation. In order to do this, we have taken the pretrained vgg16 and resnet-50 and applied transfer learning on them. We then used these on our 3 datasets: SVHN, Cifar-10 and Cifar-100. In total, we get 6 latent representations to compare. We then compare the mean and standard deviation for the latent representations. The results of this can be found below:
 
 <center>
 <table style='text-align:center;'>
@@ -194,6 +194,8 @@ We have also looked at discriminant representation. In order to do this, we have
 </table>
 </center>
 
+The overlap between the distributions of mean and standard deviation of the three datasets observed in the graphs in the original paper are significantly reduced in the latent representations for both the discriminators. Thus it is difficult to support the original claim made by the authors that the distribution of one dataset "sit inside" other datasets. Another interesting observation is that in the original graphs had similarity in the distributions of the Cifar-10 and Cifar-100 datasets, whereas with the latent representation the similarity is observed between Cifar-10 and SVHN datasets. However, the impact of pre-training should be investigated further to validate this observation.
+
 #### Autoencoder representation
                                                                                                                                     
 <center>
@@ -212,12 +214,23 @@ We have also looked at discriminant representation. In order to do this, we have
 </table>
 </center>
 
+The distributions of the latent representations are completely overlapping. This holds the authors claims but condradicts the observations made in the latent space of the discriminator models.
+
 ## Concluding remarks
 
+The conclusions made by the authors are upheld in all the results observed throughout this study with the exception of the latent representation space of the pre-trained discriminators. Moreover, the effect of pre-training is yet to be ruled out for the observations. 
 
-#### Contributions
+There have been further studies which looked into the plausible reasons of failure of generative models in detecting out-of-order detection. A study by Kirichenko et al. [2] found that the models learn the local pixel correlations and generic image-to-latentspace transformations. Thus it is independent of the the target image dataset. The paper further continued to provide some fixes for this scenario. This might be intereting paper to reproduce following this investigation.
+
+## Contributions
 
 All the members of the group read the research paper and then worked on replicating the Figures- . The entire reproduction project focuses on the 3 datasets- Cifar10, Cifar100 and SVHN as aforementioned.
 Post this, the individual contributions are as below:
 Maximilian and Nils worked upon non-normal Cauchy, Chi and F distributions to inspect data. They further summarized the paper and the reproduction results for this github blogpost.
 Sayak and Vishruty worked upon inspection of the latent representation of the data with the help of Autoencoder, Principal Component Analysis(PCA), Discriminator (VGG16 and ResNet-50). Further helped Maximilian and Nils in summarization of the reproduction results.
+
+## References
+
+[1] Nalisnick, E., Matsukawa, A., Teh, Y.W., Gorur, D. and Lakshminarayanan, B., 2018. Do deep generative models know what they don't know?. arXiv preprint arXiv:1810.09136.
+
+[2] Kirichenko, P., Izmailov, P. and Wilson, A.G., 2020. Why normalizing flows fail to detect out-of-distribution data. Advances in neural information processing systems, 33, pp.20578-20589.
