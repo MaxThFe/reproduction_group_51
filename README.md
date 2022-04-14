@@ -60,7 +60,7 @@ Principal component analysis allows us to summarize datasets, along indices that
 ![standevPCA](https://user-images.githubusercontent.com/61148684/163387423-355df5b7-cd56-42cd-abec-5fd1dcababd2.png)
 ![meanPCA](https://user-images.githubusercontent.com/61148684/163387439-023a451a-142d-4a1b-af90-12880c6805b2.png)
 
-
+As we can see, the shapes of the scaled mean after our PCA are similar across all three datasets. They are also similar in terms of density. For the standard deviation, we see great similarity for the Cifar-10 and Cifar-100 datasets. Both the shape and density match up for these datasets. The SVHN dataset does however differ in the graph. It has a distinctly different shape, not following the right-tailed distribution of both Cifar variants.
 
 #### Discriminant representation
 
