@@ -1,3 +1,7 @@
+<style>
+.test { width: 100%; height: 100%; overflow: hidden; } 
+</style>
+
 # DO DEEP GENERATIVE MODELS KNOW WHAT THEY DON’T KNOW? - A reproduction study
 
 ## Introduction
@@ -8,10 +12,10 @@ For their investigation, Nalisnick et al. trained different generative models, r
 
 While providing evidence of such phenomena for different models, Nalisnick et al. concentrate in their analysis on the GLOW model, a model architecture from the family of flow-based generative models. More specifically, the authors create log-likelihood distributions for test-sets of different datasets, normally in a direct comparison of the test set belonging to the training set and a completely different set. Datasets they consider include, but are not limited to, FashionMNIST, MNIST, CIFAR-10, SVHN, CelebA and ImageNet. Looking at these datasets, it is obvious that they represent very different data domains and hence should not be confused. In Figure 1 however are the log-likelihoods of the GLOW model for several datasets depicted. It is apparent that indeed for these datasets, the generative model makes predictions on untrained testsets with a higher confidence than on the trained datasets.
 
-<div align="center", style="overflow: hidden;">
-<table style='text-align:center;'>
+<div align="center">
+<table height=420px>
     <tr>
-        <td>
+        <td >
         <img src="https://user-images.githubusercontent.com/96209029/162642170-a15eee9f-fa3e-45cd-bcb2-d77ed98b2505.png" width="500"/>
         </td>
     </tr>
@@ -24,8 +28,7 @@ While providing evidence of such phenomena for different models, Nalisnick et al
 As depicted, the model grossly overestimates the likelihood for some beforehand unseen datasets, failing to detect anomalies. In their quest to find an explanation to that phenomena, Nalisnick et al. analyze the data sets serving as inputs to their generative models. More specifically, they calculate the mean and standard deviation along all channels (32x32x3 in the case of FashionMNIST, MNIST, CIFAR-10, SVHN, CelebA and ImageNet) for each set. The results can be seen in Figure 2. Based on the observation, that for instance SVHN dataset, a dataset misleading the generative models in testing, has a similiar mean and smaller variance than the CIFAR-10, a datset the models were trained on. The authors conclude that the missfitting datasets simply "sit inside" of the training sets, mirroring a part of the distribution the models have a high confidence on due to the number of training samples.
 
 <div align="center">
-<table style='text-align:center; 
-}'>
+<table height=300px>
     <tr>
         <td>
         <img src="https://user-images.githubusercontent.com/96209029/162839197-9e0e71f5-51db-4d04-baca-da3699112009.png" width="500"/>
@@ -44,8 +47,7 @@ Traning of flow based generative models is a computationally intensive task. Add
 
 
 <div align="center">
-<table style='text-align:center;
-}'>
+<table height=320px>
     <tr>
         <td>
         <img src="https://user-images.githubusercontent.com/61148684/162921183-0e4688af-4295-4915-8a74-592f1a72df2d.png" width="500"/>
@@ -58,8 +60,7 @@ Traning of flow based generative models is a computationally intensive task. Add
 </center>
 
 <center>
-<table style='text-align:center;
-}'>
+<table height=500px>
     <tr>
         <td>
         <img src="https://user-images.githubusercontent.com/61148684/162921517-41fb3552-2d37-4e89-b862-cfe65a69f617.png" width="500"/>
@@ -91,8 +92,7 @@ More spefically, we are going to fit different, non-gaussian distributions first
 In order to check if we get similar results in other, non-normal distributions, we have selected some distributions with other parameters to check this. We have selected three distributions, each with distinct parameters, to get an overview of changing behaviour. These distributions are the Cauchy, Chi and F distributions. Cauchy has two parameters we can alter, the data localization and the data scale.  We can shift the Cauchy distribution with the localization and scale parameters. These are similar to the mean and variance parameters, which we have seen previously in Figures 5 and 6. The Chi distribution makes use of different parameters. The shape can be influenced significantly with the degrees of freedom. For the F distribution, the density is mainly influenced by two distinct features in the degrees of freedom, the denominator and the numerator. All of these graphs are created using a subset of the original databases, as the runtime seemed to exceed several days, which was not viable for our reproduce project. The F distribution and the Chi distributions were using around 20000 samples, while the Cauchy distribution was able to run using all samples provided by the databases. 
 
 <div align="center">
-<table style='text-align:center;
-}'>
+<table height=500px>
     <tr>
         <td>
         <img src="https://user-images.githubusercontent.com/61148684/162921786-5db2a53d-43d2-4673-bbfa-3c4885f12e85.png" width="500"/>
