@@ -10,7 +10,7 @@ While providing evidence of such phenomena for different models, Nalisnick et al
 
 ![Likelihood estimation of GLOW on several datsets, direct comparison between trained dataset and new datsets](https://user-images.githubusercontent.com/96209029/162642170-a15eee9f-fa3e-45cd-bcb2-d77ed98b2505.png)
 
-As depicted, the model grossly overestimates the likelihood for some beforehand unseen datasets, failing to detect anomalies. In their quest to find an explanation to that phenomena, Nalisnick et al. analyze the input data to their generative models. More specifically, they calculate the mean and standard deviation along all channels (32x32x3 in the case of FashionMNIST, MNIST, CIFAR-10, SVHN, CelebA and ImageNet). The results can be seen in Figure 2. Based on the observation, that for instance SVHN dataset, a dataset misleading the generative models in testing, has a similiar mean and smaller variance than the SVHN, a datset the models were trained on, the authors conclude that the missfitting datasets simply "sit inside" of the training sets, mirroring a part of the distribution the models have a high confidence on due to the number if training samples.
+As depicted, the model grossly overestimates the likelihood for some beforehand unseen datasets, failing to detect anomalies. In their quest to find an explanation to that phenomena, Nalisnick et al. analyze the input data to their generative models. More specifically, they calculate the mean and standard deviation along all channels (32x32x3 in the case of FashionMNIST, MNIST, CIFAR-10, SVHN, CelebA and ImageNet). The results can be seen in Figure 2. Based on the observation, that for instance SVHN dataset, a dataset misleading the generative models in testing, has a similiar mean and smaller variance than the CIFAR-10, a datset the models were trained on, the authors conclude that the missfitting datasets simply "sit inside" of the training sets, mirroring a part of the distribution the models have a high confidence on due to the number of training samples.
 
 ![Analysis of several datasets for mean and standard deviation](https://user-images.githubusercontent.com/96209029/162839197-9e0e71f5-51db-4d04-baca-da3699112009.png)
 
@@ -70,3 +70,11 @@ We have also looked at discriminant representation. In order to do this, we have
 #### Autoencoder representation
 
 ## Concluding remarks
+
+
+#### Contributions
+All the members of the group read the research paper and then worked on replicating the Figures- . The entire reproduction project focuses on the 3 datasets- Cifar10, Cifar100 and SVHN as aforementioned.
+Post this, the individual contributions are as below:
+Maximilian and Nils worked upon non-normal Cauchy, Chi and F distributions to inspect data. They further summarized the paper and the reproduction results for this github blogpost.
+Sayak and Vishruty worked upon inspection of the latent representation of the data with the help of Autoencoder, Principal Component Analysis(PCA), Discriminator (VGG16 and ResNet-50). Further helped Maximilian and Nils in summarization of the reproduction results.
+
