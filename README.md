@@ -24,7 +24,8 @@ While providing evidence of such phenomena for different models, Nalisnick et al
 As depicted, the model grossly overestimates the likelihood for some beforehand unseen datasets, failing to detect anomalies. In their quest to find an explanation to that phenomena, Nalisnick et al. analyze the data sets serving as inputs to their generative models. More specifically, they calculate the mean and standard deviation along all channels (32x32x3 in the case of FashionMNIST, MNIST, CIFAR-10, SVHN, CelebA and ImageNet) for each set. The results can be seen in Figure 2. Based on the observation, that for instance SVHN dataset, a dataset misleading the generative models in testing, has a similiar mean and smaller variance than the CIFAR-10, a datset the models were trained on. The authors conclude that the missfitting datasets simply "sit inside" of the training sets, mirroring a part of the distribution the models have a high confidence on due to the number of training samples.
 
 <div align="center">
-<table style='text-align:center;'>
+<table style='text-align:center; overflow: auto;
+}'>
     <tr>
         <td>
         <img src="https://user-images.githubusercontent.com/96209029/162839197-9e0e71f5-51db-4d04-baca-da3699112009.png" width="500"/>
@@ -43,7 +44,8 @@ Traning of flow based generative models is a computationally intensive task. Add
 
 
 <div align="center">
-<table style='text-align:center;'>
+<table style='text-align:center;overflow: auto;
+}'>
     <tr>
         <td>
         <img src="https://user-images.githubusercontent.com/61148684/162921183-0e4688af-4295-4915-8a74-592f1a72df2d.png" width="500"/>
@@ -56,7 +58,8 @@ Traning of flow based generative models is a computationally intensive task. Add
 </center>
 
 <center>
-<table style='text-align:center;'>
+<table style='text-align:center;overflow: auto;
+}'>
     <tr>
         <td>
         <img src="https://user-images.githubusercontent.com/61148684/162921517-41fb3552-2d37-4e89-b862-cfe65a69f617.png" width="500"/>
@@ -88,7 +91,8 @@ More spefically, we are going to fit different, non-gaussian distributions first
 In order to check if we get similar results in other, non-normal distributions, we have selected some distributions with other parameters to check this. We have selected three distributions, each with distinct parameters, to get an overview of changing behaviour. These distributions are the Cauchy, Chi and F distributions. Cauchy has two parameters we can alter, the data localization and the data scale.  We can shift the Cauchy distribution with the localization and scale parameters. These are similar to the mean and variance parameters, which we have seen previously in Figures 5 and 6. The Chi distribution makes use of different parameters. The shape can be influenced significantly with the degrees of freedom. For the F distribution, the density is mainly influenced by two distinct features in the degrees of freedom, the denominator and the numerator. All of these graphs are created using a subset of the original databases, as the runtime seemed to exceed several days, which was not viable for our reproduce project. The F distribution and the Chi distributions were using around 20000 samples, while the Cauchy distribution was able to run using all samples provided by the databases. 
 
 <div align="center">
-<table style='text-align:center;'>
+<table style='text-align:center;overflow: auto;
+}'>
     <tr>
         <td>
         <img src="https://user-images.githubusercontent.com/61148684/162921786-5db2a53d-43d2-4673-bbfa-3c4885f12e85.png" width="500"/>
@@ -106,7 +110,8 @@ In order to check if we get similar results in other, non-normal distributions, 
 As we can see above, the difference between the mean and localization is minor. The spreads for Cifar-100 and SVHN are slightly bigger, while the general shapes of the graphs are similar.
 
 <div align="center">
-<table style='text-align:center;'>
+<table style='text-align:center;overflow: auto;
+}'>
     <tr>
         <td>
         <img src="https://user-images.githubusercontent.com/61148684/162921999-5be2eaa0-9c98-47de-b56f-435312f7ab0a.png" width="400"/>
@@ -121,7 +126,8 @@ As we can see above, the difference between the mean and localization is minor. 
 With the Chi distribution, we see interestingly that degrees of freedom for Cifar-10 and Cifar-100 are centered around 1.8. The SVHN is centered around 3 degrees of freedom. The spread of SVHN is also lower than the spread of Cifar-10 and Cifar-100, which is similar to what we have seen in the other distributions. What is also noteworthy is that the Cifar-10 and Cifar-100 are skewed to the right, while the SVHN is more centered. 
 
 <div align="center">
-<table style='text-align:center;'>
+<table style='text-align:center;overflow: auto;
+}'>
     <tr>
         <td>
         <img src="https://user-images.githubusercontent.com/61148684/162922073-96c3d5c2-b84a-4098-851d-18ddb5da13a4.png" width="400"/>
