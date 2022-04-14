@@ -135,7 +135,7 @@ With the Chi distribution, we see that degrees of freedom for Cifar-10 and Cifar
 While the Chi distribution was also run with a limited amount of samples, the F distribution seems to have a more rough plot, where the graph is not as smooth as observed with the Chi distribution. Although the spread within the numerator is limited, each dataset seems to have a similar F distribution. With the denominator, the spread is more apparent. While this is not skewed, the variance of the Cifar-10 and Cifar-100 distributions is higher than observed with the numerator.
 
 
-### analysis in reduced space representations
+### Analysis in reduced space representations
 Aside from comparing the results, we can also look at the reduced space representation. We will check this with 3 representations: Principal component analysis, discriminant representation, and autoencoder representation.  
 
 #### Principal component analysis (PCA)
