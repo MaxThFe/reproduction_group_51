@@ -143,7 +143,7 @@ Aside from compare the results, we can also take a look at the reduced space rep
 Principal component analysis allows us to summarize datasets, along indices that are more informing than others. These indices are called principal components. This allows us to effectively condense our information, making it easier to handle. We have concatenated the training and test data of the three datasets we have operated on. Using the function pca_lowrank(), we perform our principal component analysis. The tensors then get reshaped based on the the U, S and V matrices obtained from pca_lowrank(), which together form a decomposited matrix approximating the original dataset matrix. We then get the latent representation statistics, which collect the scale, mean and standard deviation. With the returned mean and standard deviation, we can then plot the variance across datasets, as shown in the Figures below:   
 
 <div align="center">
-<table height=500px>
+<table height=450px>
     <tr>
         <td>
         <img src="https://user-images.githubusercontent.com/61148684/163387423-355df5b7-cd56-42cd-abec-5fd1dcababd2.png" width="500"/>
@@ -164,7 +164,7 @@ As we can see, the shapes of the scaled mean after our PCA are similar across al
 We have also looked at discriminant representation. In order to do this, we have taken the pretrained vgg16 and resnet-50 and applied transfer learning on them. We then used these on our 3 datasets: SVHN, Cifar-10 and Cifar-100. In total, we get 6 models to compare. We then compare the histograms for the latent representations. The results of this can be found below:
 
 <div align="center">
-<table height=500px>
+<table height=450px>
     <tr>
         <td>
         <img src="https://user-images.githubusercontent.com/61148684/163449856-37dedec2-e3bd-4486-8c94-3cd05bd52390.png" width="500"/>
@@ -180,7 +180,7 @@ We have also looked at discriminant representation. In order to do this, we have
 </div>
 
 <div align="center">
-<table height=500px>
+<table height=450px>
     <tr>
         <td>
         <img src="https://user-images.githubusercontent.com/61148684/163449842-43a48dca-88ac-4291-9aed-18b73a3b7d2f.png" width="500"/>
@@ -198,7 +198,7 @@ We have also looked at discriminant representation. In order to do this, we have
 #### Autoencoder representation
                                                                                                                                     
 <div align="center">
-<table height=500px>
+<table height=450px>
     <tr>
         <td>
         <img src="https://user-images.githubusercontent.com/13098653/163450979-c515ccab-798b-4db8-b629-dc5ccf6f09d4.png" width="500"/>
